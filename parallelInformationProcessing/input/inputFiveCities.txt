@@ -1,0 +1,16 @@
+5
+city1
+1
+2
+city2
+2
+3
+city3
+4
+3
+city4
+5
+4
+city5
+6
+5
