@@ -1,0 +1,8 @@
+__pycache__/
+*.py[cod]
+.venv/
+**/build/
+*.class
+.idea/
+*.iml
+.DS_Store

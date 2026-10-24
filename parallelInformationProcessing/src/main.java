@@ -10,6 +10,7 @@ public class main{
         Scanner in = new Scanner(System.in);
         System.out.println("Enter number of threads to run in parallel:");
         int tn=in.nextInt();
+        if(tn < 1) throw new IllegalArgumentException("Thread count must be positive.");
         TSP[] t_arr=new TSP[tn];
         for(int i=0;i<tn;i++){
             t_arr[i] = new TSP(i);
@@ -22,9 +23,9 @@ public class main{
         int n = 0;
         int line = 0;
         try {
-            File myObj = new File("input/inputfifteenCities.txt");
+            File myObj = new File(args.length > 0 ? args[0] : "input/inputFifteenCities.txt");
             Scanner myReader = new Scanner(myObj);
-            while (myReader.hasNextLine()) {
+            while (myReader.hasNextLine() && (line == 0 || line <= n)) {
                 if(line == 0) {
                     n = Integer.parseInt(myReader.nextLine());
                     System.out.println("number of cities/points: " + n);
@@ -48,6 +49,7 @@ public class main{
         } catch (FileNotFoundException e) {
             System.out.println("An error occurred.");
             e.printStackTrace();
+            return;
         }
         TSP.n=n;
         System.out.println("enter starting point:");
